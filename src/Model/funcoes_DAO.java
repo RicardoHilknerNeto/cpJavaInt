@@ -19,6 +19,10 @@ public class funcoes_DAO {
     static ArrayList<Integer> aviao = new ArrayList<Integer>();
     static ArrayList<Integer> assento = new ArrayList<Integer>();
 
+    public static void consulta(){
+        
+    }
+    
     public static void reserva() {
     int IntAviao = Integer.parseInt(View.reserva_GUI.nvoo_txt.getText());
     aviao.add(IntAviao);
@@ -28,7 +32,7 @@ public class funcoes_DAO {
     if(assento.contains(IntAssento)) {
         JOptionPane.showMessageDialog(null, "Assento já reservado, escolha outro");
     } else {
-        assento.add(IntAssento); // Movido para o bloco 'else'
+        assento.add(IntAssento);
         JOptionPane.showMessageDialog(null, "Reserva concluída");
     }
 }
