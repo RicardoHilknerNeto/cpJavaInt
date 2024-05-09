@@ -5,8 +5,9 @@
  */
 package Model;
 
-import java.awt.List;
+import javax.swing.JOptionPane;
 import java.util.ArrayList;
+
 
 /**
  *
@@ -14,5 +15,22 @@ import java.util.ArrayList;
  */
 
 public class funcoes_DAO {
+    
+    static ArrayList<Integer> aviao = new ArrayList<Integer>();
+    static ArrayList<Integer> assento = new ArrayList<Integer>();
+
+    public static void reserva() {
+    int IntAviao = Integer.parseInt(View.reserva_GUI.nvoo_txt.getText());
+    aviao.add(IntAviao);
+
+    int IntAssento = Integer.parseInt(View.reserva_GUI.nassento_txt.getText());
+    
+    if(assento.contains(IntAssento)) {
+        JOptionPane.showMessageDialog(null, "Assento já reservado, escolha outro");
+    } else {
+        assento.add(IntAssento); // Movido para o bloco 'else'
+        JOptionPane.showMessageDialog(null, "Reserva concluída");
+    }
+}
     
 }
