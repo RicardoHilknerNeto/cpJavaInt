@@ -94,19 +94,23 @@ public class funcoes_DAO {
 
 
   
-    public static void reserva() {
+  public static void reserva() {
         int IntAviao = Integer.parseInt(View.reserva_GUI.nvoo_txt.getText());
+        int IntAssento = Integer.parseInt(View.pNumero_GUI.c1_txt.getText());
         
-        if(aviao.contains(IntAviao)) {
-            if(assento.contains(IntAviao)) {
-                JOptionPane.showMessageDialog(null, "Assento já reservado, escolha outro");
-            } else {
-                JOptionPane.showMessageDialog(null, "Reserva concluída");
-                assento.add(IntAviao);
-
-            }
+        // Verifica se o avião está na lista de aviões
+        if (aviao.contains(IntAviao)) {
+            // Se o avião não está na lista, adiciona
+            aviao.add(IntAviao);
+        }
+        
+        // Verifica se o assento já está reservado para o avião
+        if (assento.contains(IntAssento)) {
+            JOptionPane.showMessageDialog(null, "Assento já reservado, escolha outro");
         } else {
-            JOptionPane.showMessageDialog(null, "Avião não encontrado");
+            // Se não estiver reservado, reserva o assento e informa ao usuário
+            assento.add(IntAssento);
+            JOptionPane.showMessageDialog(null, "Reserva concluída");
         }
     } 
 }
